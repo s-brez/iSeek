@@ -1,0 +1,30 @@
+{% extends "navbar.html" %}
+
+{% block body %}
+	<br>
+
+	<div class="body">
+
+		<!-- links to change category view -->
+		<i><p>Category view: <a href="/All">All</a>
+		{% for category in categories %}
+			 - <a href="/{{category}}">{{category}}</a>
+		{% endfor %}
+		</p></i>
+
+		<!-- display current category view -->
+		<i><p>Showing listings for category: <b>{{cat}}</b></p></i>
+
+		<!-- display ads previews -->
+		{% for ad in ads %}
+			{% if (ads[ad]['category'] == cat) or (cat == 'all') or (cat == 'All') %}
+				<div class='ad' onclick="location.href='/ad/{{ads[ad]['job_id']}}';" style="cursor: pointer;">
+					<b style="color:#0036bf">{{ ads[ad]['title_original'] }}</b>
+					<br><br>{{ ads[ad]['company'] }}
+					<br><br><i>{{ ads[ad]['category'] }}</i>
+				</div>			
+				<br>
+			{% endif %}
+		{% endfor %}
+	</div>
+{% endblock %}

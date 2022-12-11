@@ -1,0 +1,23 @@
+{% extends "navbar.html" %}
+
+{% block body %}
+	<br>
+
+	<div class="body">
+
+		<!-- display ads previews -->
+		{% if total > 0 %}
+			{% for ad in ads %}
+				<div class='ad' onclick="location.href='/ad/{{ads[ad]['job_id']}}';" style="cursor: pointer;">
+					<b style="color:#0036bf">{{ ads[ad]['title_original'] }}</b>
+					<br><br>{{ ads[ad]['company'] }}
+					<br><br><i>{{ ads[ad]['category'] }}</i>
+				</div>			
+				<br>
+			{% endfor %}
+		{% else %}
+			No recently posted listings
+		{% endif %}
+
+	</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "navbar.html" %}
+
+{% block body %}
+	<br>
+
+	<div class="body">
+
+		{% if message != None %}
+			<b style='color:lightgreen;'>{{ message }}</b>
+			<br><br>
+		{% endif %}
+
+		<div class='ad_full'>
+			<b style="color:#0036bf">{{ ads[job_id]['title_original'] }}</b>
+			<br><br>{{ ads[job_id]['company'] }}
+			<br><br><i>{{ ads[job_id]['category'] }}</i>
+			<br><br>{{ ads[job_id]['desc_original'] }}
+		</div>			
+		<br><a href="javascript:history.back()" class=button>Back</a>
+	</div>
+{% endblock %}

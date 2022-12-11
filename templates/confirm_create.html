@@ -1,0 +1,36 @@
+{% extends "navbar.html" %}
+
+{% block body %}
+	<br>
+
+	<div class="body">	
+
+		<!-- input form for new ad fields -->
+		<div class='form_create'>
+			<form action="/confirm/" method="post">
+	    		<br>
+	    		Job ad category is likely to be: <b>{{ predicted_category }}</b>.
+	    		<br><br>
+	    		If you would like to use a different category, select the correct category from the dropdown:
+	    		<br><br>
+	    		<select name="select_category">
+              		{% for cat in categories %}
+						{% if cat == predicted_category %}
+              				<option value="{{ cat }}" selected>{{ cat }}</option>
+              			{% else %}
+							<option value="{{ cat }}">{{ cat }}</option>
+						{% endif %}
+              		{% endfor %}                                              
+            	</select>
+
+            	<!-- hidden inputs -->
+            	<input type="hidden" name="title", value="{{title}}">
+	    		<input type="hidden" name="company", value="{{company}}">
+	    		<input type="hidden" name="description", value="{{description}}">
+
+				<br>
+	    		<input type="submit" value="Submit">
+			</form>
+		</div>
+	</div>
+{% endblock %}

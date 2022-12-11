@@ -1,0 +1,24 @@
+{% extends "navbar.html" %}
+
+{% block body %}
+	<br>
+
+	<div class="body">
+
+		{% if error != None %}
+			<b style='color:red;'>{{ error }}</b>
+			<br><br>
+		{% endif %}
+
+		<!-- input form for new ad fields -->
+		<div class='form_create'>
+			<form action="/create/" method="post">
+	    		Title (required): <br><input type="text" name="title"><br><br>
+	    		Company: <br><input type="text" name="company"><br><br>
+	    		Description (required): <br><input type="text" name="description"><br><br>
+	    		<input type="submit" value="Submit">
+			</form>
+		</div>
+		
+	</div>
+{% endblock %}

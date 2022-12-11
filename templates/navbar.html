@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }} " type="text/css" media="all" />
+    </head>
+
+    <body>
+
+        <!-- navbar -->
+        <div>
+            <ul>
+                <li><img src="{{url_for('static', filename='logo_nav.png')}}"/></li>
+                <li><a href="/">Browse Jobs</a>&nbsp&nbsp-</li>
+                <li><a href="/create">Create New Job Listing</a>&nbsp&nbsp-</li>
+                <li><a href="/recent">Recently Posted Job Listings</a></li>
+            </ul>
+        <div/>
+
+        <!-- coloured banner under nav -->
+        <div class="banner">
+            
+        <div/>
+
+        <div>
+            {% block body %}
+            {% endblock %}
+        <div/>
+
+    </body>
+</html>
+
